@@ -124,12 +124,15 @@
           * execute a loop based on a model attribute.
           
           th:text displays a text value
+          exemple of variable expression: <td th:text="${grade.name}"></td>
         -->
-				<tr>
+
+				<!-- Selection expressions select a field from the previously bound object: th:text = *{field}  -->
+				<tr th:object="${grade}">
 					<!-- this variable expressions will use the getter of the POJO object attributes. So, be sure that the names are right in every place -->
-					<td th:text="${grade.name}"></td>
-					<td th:text="${grade.subject}"></td>
-					<td th:text="${grade.score}"></td>
+					<td th:text="*{name}"></td>
+					<td th:text="*{subject}"></td>
+					<td th:text="*{score}"></td>
 				</tr>
 			</table>
 		</div>
