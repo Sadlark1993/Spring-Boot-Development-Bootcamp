@@ -1,0 +1,34 @@
+./mvnw spring-boot:run
+./mvnw clean spring-boot:run // Removes previously compiled code; Compiles code and runs it.
+mvn clean spring-boot:run //same thing, if you have maven installed in the PC.
+
+/* Client-Server Communication
+  -client sends request to server;
+  -server responds that request.
+*/
+
+/*
+* Spring-boot applications have an embedded HTTP server. Te embedded HTTP server processes the request;
+* A HTTP request must specify the IP address and the port;
+* The IP address specify the physical server, the port specify where to forward the request.
+*/
+
+/* Launch a HTTP server
+* type on google: spring boot web dependency
+* go to the central maven repository. It has all the dependencies that we can leverage to our spring boot application.
+* choose a dependency that matches your spring boot app, past the dependency inside your pom.xml file
+* remove the line of the version of the dependency (cuz the version for the whole spring boot app is already specified on the top of the document)
+* mvn clean spring-boot:run
+*/
+
+//the index.html inside the src/main/resources/static folder will be sent to the client.
+//to change the port of the server: in the application.properties file, insert: 'server.port=9090'. It will change the port to 9090.
+
+//Spring Boot DevTools: pick up new changes and restarts your application.
+/*
+* google: "spring-boot-dev-tools maven central".
+* do tha same thing that you did with the spring boot web dependency.
+*/
+
+//to work with templates, the thymeleaf dependency is needed. Add it to your pom.xml.
+//To link a CSS file from a HTML in the template folder: <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />

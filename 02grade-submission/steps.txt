@@ -1,0 +1,22 @@
+/* Annotations add logic to your code without using code
+* @Controller
+  - Converts a class to a view controller;
+  - Turns the class to the entry point to all web requests;
+  - The controller class has handler methods, that respond to web requests.
+
+* @GetMapping
+  - Converts a method to a handler method; 
+  - A handler method responds to GET requests;
+  - The handler method receives one argument: the path to the handler method (URL).
+* @PostMapping
+* @RequestParam
+*/
+
+//To link a CSS file from a HTML in the template folder: <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+
+/* The model
+* you can think of model as a container that holds data;
+* the handler method has direct access to the model;
+* the handler method can create data in the form of POJO (Plain Old Java Objects);
+* the handler method can store the data in a Model atribute.
+*/
