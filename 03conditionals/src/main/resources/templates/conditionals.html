@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Conditionals</title>
+	</head>
+	<!-- th:if renders an element based on a condition -->
+	<body>
+		<p th:if="${sales > 50}">She sales are good</p>
+		<p th:unless="${sales > 50}">She sales are bad</p>
+
+		<!-- you can use ternary operators as well -->
+		<p th:text="${sales > 50 ? 'it is good' : 'it is bad'}"></p>
+
+		<!-- switch-case expression -->
+		<div th:switch="${product}">
+			<p th:case="'chair'">30</p>
+			<p th:case="'TV'">100</p>
+			<p th:case="*">No match</p>
+		</div>
+	</body>
+</html>

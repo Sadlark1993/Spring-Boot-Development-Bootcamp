@@ -20,3 +20,5 @@
 * the handler method can create data in the form of POJO (Plain Old Java Objects);
 * the handler method can store the data in a Model atribute.
 */
+
+//th:if renders an element based on a condition
