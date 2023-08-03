@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class GradeController {
@@ -16,22 +17,38 @@ public class GradeController {
    * page refresh.
    */
 
-  List<Grade> studentGrades = Arrays.asList(
-      new Grade("Harry", "Potions", "C-"),
-      new Grade("Hermione", "Charms", "A+"),
-      new Grade("Neville", "Herbology", "A+"));
+  List<Grade> studentGrades = new ArrayList<Grade>();
+
+  // just to pre populate the list.
+  public GradeController() {
+    this.studentGrades.add(new Grade("Harry", "Potions", "C-"));
+    this.studentGrades.add(new Grade("Hermione", "Charms", "A+"));
+    this.studentGrades.add(new Grade("Neville", "Herbology", "A+"));
+  }
+
+  @GetMapping("/")
+  public String getForm(Model model) {
+
+    // created a new POJO object that will be linked to the form
+    model.addAttribute("grade", new Grade());
+    return "form";
+  }
+
+  @PostMapping("/handleSubmit")
+  public String submitGrade(Grade grade) {
+    studentGrades.add(grade);
+    /*
+     * the redirection executes the handle method of /grades. If we returned /grades
+     * directly, it would not execute its handler method.
+     */
+    return "redirect:/grades";
+  }
 
   @GetMapping("/grades")
   public String getGrades(Model model) {
 
-    model.addAttribute("grade", studentGrades);
+    model.addAttribute("grades", studentGrades);
     return "grades";
   }
 
-  @GetMapping("/g")
-  public String getForm(Model model) {
-
-    model.addAttribute("form", new Grade());
-    return "form";
-  }
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{./form-stylesheet.css}" />
 		<title>Form</title>
-		<link rel="stylesheet" type="text/css" href="@{./form-stylesheet.css}" />
 	</head>
 	<body>
 		<div class="topnav">
@@ -11,10 +11,12 @@
 		</div>
 		<div class="container">
 			<h2>Grade Portal</h2>
-			<form method="post">
-				<input type="text" placeholder="Name" />
-				<input type="text" placeholder="Score" />
-				<input type="text" placeholder="Subject" />
+			<!-- Here, we are linking the form to an empty POJO object that was created in the controller class. -->
+			<!-- we are also specifying the handler method that will handle the POST request. -->
+			<form method="post" th:object="${grade}" th:action="@{/handleSubmit}">
+				<input type="text" placeholder="Name" th:field="*{name}" />
+				<input type="text" placeholder="Subject" th:field="*{subject}" />
+				<input type="text" placeholder="Score" th:field="*{score}" />
 				<br /><br />
 				<input type="submit" value="Submit" />
 			</form>
