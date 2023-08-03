@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Utility Methods</title>
+	</head>
+	<body>
+		<!-- to scape a single quote here, just use double single quotes. Just like it is below -->
+		<h1
+			th:text="${#strings.contains(menu, 'rice cake') ? 'we have this iten' : 'we don''t have this iten'}"
+		></h1>
+	</body>
+</html>

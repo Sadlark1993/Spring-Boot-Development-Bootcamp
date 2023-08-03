@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
+		<title>Table</title>
+	</head>
+	<body>
+		<h2>Staff List</h2>
+		<table>
+			<tr class="row header-row">
+				<th class="cell">Name</th>
+				<th class="cell">Age</th>
+				<th class="cell role">Role</th>
+			</tr>
+			<tr class="row" th:each="employee: ${employees}">
+				<td class="cell" th:text="${employee.name}"></td>
+				<td class="cell" th:text="${employee.age}"></td>
+				<td class="cell role" th:text="${employee.role}"></td>
+			</tr>
+		</table>
+	</body>
+</html>

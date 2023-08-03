@@ -1,0 +1,22 @@
+table {
+	text-align: center;
+	border-collapse: collapse;
+	border: solid black 1px;
+	border-spacing: 0;
+}
+
+.header-row {
+	font-weight: bold;
+}
+
+.cell {
+	display: inline-block;
+	width: 200px;
+	padding: 8px;
+	border: solid black 1px;
+	margin: 0;
+}
+
+.cell.role {
+	width: 300px;
+}
