@@ -39,6 +39,14 @@
 					<td th:text="${grade.name}"></td>
 					<td th:text="${grade.subject}"></td>
 					<td th:text="${grade.score}"></td>
+					<!-- the next button makes a GET request sending the name as parameter -->
+					<!-- to do the same thing via URL in the web browser, do like this: localhost:8080/?name=harry+potter 
+					- the '+' replaces white space.-->
+					<td>
+						<a role="button" class="update" th:href="@{/(id = ${grade.id})}"
+							>Update</a
+						>
+					</td>
 				</tr>
 			</table>
 		</div>
