@@ -1,0 +1,5 @@
+//import from maven the spring-boot validation dependency to pom.xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
