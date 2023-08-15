@@ -1,0 +1,10 @@
+/* Three Layer Codebase
+* Controller, Service and Repository must be in separated folders;
+* only the Repository can access the data store;
+* move all the CRUD operation from the Controller to the Repository;
+* Controller (presentation), Service (business) and Repository (data access) must be in separated folders;
+* only the Repository can access the data store;
+
+* Service must act as a middleman between the Controller and Repository;
+* move every business operation from the Controller into Service;
+*/
