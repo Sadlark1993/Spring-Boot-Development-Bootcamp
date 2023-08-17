@@ -1,0 +1,42 @@
+/* Bean
+* a bean is an object that Spring stores and manages for you;
+* to create a bean, you just need to make a @Component class;
+* Spring creates an object out of each @Component class that it finds;
+* a Spring container, also called ApplicationContext, stores and manages the object for you;
+* the object lives inside of the spring container;
+* an object that lives inside of the spring container is called bean;
+
+*/
+
+@Component
+public class GradeService{
+...
+}
+
+/* Dependency Injection
+* never ever create an object inside of a classe that depends on it. This is called tight coupling and it makes unit tests impossible;
+* instead, we should inject the object into the class;
+* we use dependency injection to achieve loose coupling;
+*/
+
+@Controller
+public class GradeController {
+  GradeService gradeService = new GradeService(); //don't do this
+}
+
+// a dependency is an object that another class depends on
+// tight coupling makes unit test impossible
+
+/* Dependency Injection Process
+* annotate the class of the object with @Component;
+* Spring-Boot registers the @Component class as a Bean;
+* when the application runs, the Spring-Boot performs a Component scan, creates objects out of the Component class, stores it in the 
+Spring Container;
+* @Autowired injects the Bean into the dependent class;
+*/
+
+@Controller
+public class GradeController {
+  @Autowired
+  GradeService gradeService
+}
