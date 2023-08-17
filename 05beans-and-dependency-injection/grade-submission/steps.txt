@@ -40,3 +40,5 @@ public class GradeController {
   @Autowired
   GradeService gradeService
 }
+
+//@Controller, @Service and @Repository are just like @Component. Use them at Controller, Service and Repository classes.
