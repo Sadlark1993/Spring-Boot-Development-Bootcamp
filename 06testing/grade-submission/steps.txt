@@ -1,0 +1,23 @@
+/* What should we unit test?
+* the Service contains business logic, that is vulnerable to bugs;
+* with tight coupling, we can never test the service class with complete isolation. That's why we use loos coupling;
+* when unit testing, we execute only the class that is being tested. So, in the object that the class is dependent, we inject a mock;
+* using a mock, allows us to test a class in complete isolation;
+*/
+
+/* Steps
+* create the class GradeServiceTest.java inside the test folder;
+* @RunWith uses MockitoJUnitRunner to run every unit test;
+* search for JUnit dependency in google and chose that one from maven repository, add it into your pom.xml;
+* use @Mock to create a mock of the Repository;
+* @InjectMocks creates an object (out of the class you wanna test) and injects the mock into it;
+*/
+
+@RunWith(MockitoJUnitRunner.class)
+public class GradeServiceTest {
+  @Mock
+  GradeRepository gradeRepositoryMock;
+
+  @injectMocks
+  GradeService gradeService;
+}
