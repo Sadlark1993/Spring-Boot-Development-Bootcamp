@@ -42,3 +42,30 @@ public class GradeController {
 }
 
 //@Controller, @Service and @Repository are just like @Component. Use them at Controller, Service and Repository classes.
+//any of this annotations will register the class as a Bean.
+
+//A @Bean is an annotated method that returns a dependency:
+
+@Bean
+public GradeSubmissionRepository gradeRepository(){
+  return new GradeSubmissionRepository();
+}
+
+// @Configuration marks the class as a source for @Bean definitions.
+@Configuration
+public class AppConfig {
+  //...
+  @Bean
+  public GradeRepository gradeRepository(){
+    return new GradeRepository();
+  }
+}
+
+//@Autowired wires the @Bean to the class that needs it:
+@Controller
+public class GradeController {
+  @Autowired
+  GradeService gradeService
+}
+
+//in the workbook, there is an lesson where you config a bean using XML. I didn't do it, but if I need to know it, I'll come back here later. 
