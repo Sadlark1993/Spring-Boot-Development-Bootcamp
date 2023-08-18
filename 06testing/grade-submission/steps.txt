@@ -21,3 +21,14 @@ public class GradeServiceTest {
   @injectMocks
   GradeService gradeService;
 }
+
+/* @Test tels JUnit to run the method as a test. 
+* the three steps to write a unit test:
+  1. arrange: mock the data needed to carry out the unit test;
+  2. act: call the method that you want to test;
+  3. assert: check if the method is behaving correctly.
+*/
+
+/* Verify method
+* verify(mock, times).method();
+*/
