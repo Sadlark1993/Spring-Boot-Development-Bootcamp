@@ -1,0 +1,25 @@
+//he explained that using interfaces to create component classes is better to achieve loosely coupling.
+//explained @ConditionalOnProperty.
+//@ResponseBody serializes a response into Json.
+
+//@RestController == @Controller + @ResponseBody
+
+/*@RequestParam vs. @PathVariable
+  In the past, we used @RequestParam to extract query values:
+
+  // localhost:8080/hi?name=Harry 
+  
+  @GetMapping("/hi")
+  public void handlerMethod(@RequestParam String name)
+
+
+  We recently used@PathVariable to extract data from the URI.
+
+  // localhost:8080/hi/Harry
+  
+  @GetMapping("/hi/{name}")
+  public void handlerMethod(@PathVariable String name)
+
+
+  @PathVariable is more suitable for REST
+*/
