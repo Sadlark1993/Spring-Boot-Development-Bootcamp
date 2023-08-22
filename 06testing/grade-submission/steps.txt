@@ -32,3 +32,33 @@ public class GradeServiceTest {
 /* Verify method
 * verify(mock, times).method();
 */
+
+/* Integration Tests
+* integration tests traverses the whole application;
+* while unit tests does't use the spring container, integration tests does;
+* first, you should unit test the business logic of the app, that is in the service layer;
+* after the unit tests, you can do the integration tests;
+* for integration tests, we use @SpringBootTest annotation;
+* the @SpringBootTest annotation loads the spring container and scans the application for component classes,
+  registering them as Beans;
+* so, we can @Autowired the Beans into our test class;
+*/
+
+@SpringBootTest
+class GradeApplicationSubmissionTest {
+
+  @Autowired
+  private GradeController controller;
+
+  @Test
+  void contextLoads(){
+    assertNotNull(controller);
+  }
+}
+
+/* MockMvc
+* the @AutoConfigureMockMvc can mock web requests;
+* it tests how your app handles web requests, without running or deploying your application;
+* the @AutoConfigureMockMvc registers the MockMvc Bean in the spring container. So we can @Autowired this bean in our test class;
+
+*/
