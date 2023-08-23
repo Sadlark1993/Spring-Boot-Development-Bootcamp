@@ -1,3 +1,17 @@
+//API: mediator between a consumer and a system.
+//REST API: API that conforms to a set of guidelines.
+
+/* REST Guidelines
+* Resource: piece of data that you can name;
+* URI: identifies the location of the resource;
+* defines operations that can manipulate resources:
+  - GET: retrieves a resource;
+  - POST: creates a resource;
+  - PUT: updates a resource;
+  - DELETE: deletes a resource.
+* collection: grouping of resources;
+*/
+
 //he explained that using interfaces to create component classes is better to achieve loosely coupling.
 //explained @ConditionalOnProperty.
 //@ResponseBody serializes a response into Json.
