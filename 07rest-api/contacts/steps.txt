@@ -23,3 +23,5 @@
 
   @PathVariable is more suitable for REST
 */
+
+//@RequestBody Class object deserializes the Json into a Java object.

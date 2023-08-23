@@ -8,9 +8,10 @@ public class Contact {
     private String name;
     private String phoneNumber;
 
-    public Contact() {
+
+    public Contact(){
         this.id = UUID.randomUUID().toString();
-    }
+    } 
 
     public String getName() {
         return this.name;
