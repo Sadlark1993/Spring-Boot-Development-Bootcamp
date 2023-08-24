@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ltp.contacts.pojo.Contact;
 import com.ltp.contacts.service.ContactService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController // the returned objects will be converted into Json
 public class ContactController {
