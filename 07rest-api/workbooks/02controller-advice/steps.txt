@@ -1,0 +1,8 @@
+/* Controller Advice (runtime exception)
+ * because its an unchecked runtime exception, there is no need to catch it. It will be thrown as the application runs;
+ * @ControllerAdvice is a class level annotation that defines global exception handlers;
+ * @ExceptionHandler is a method-level annotation that defines an exception handler;
+ */
+
+@ExceptionHandler(YourException.class) //defines the exception that you want the method to handler
+public returnType method(YourException e) //the thrown exception can be accessed from the list of arguments
