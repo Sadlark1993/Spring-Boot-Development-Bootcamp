@@ -23,3 +23,19 @@ studentRepositoryImpl implements StudentRepository{
     existsById(Long id)
     ...
 }
+
+/* Lombok
+* from now, we don't need to create getters, setters and constructors manually in our pojo class. Lombok does this to us by the class level annotations:
+* @Getter, @Setter, @AllArgsConstructor, @NoArgsConstructor
+*/
+
+/* CommandLineRunner
+* with this, you can execute a code whenever the app runs.
+* the main class must implement the interface CommandLineRunner;
+* override the method run. Inside this method, put all the code that you want to run when the app runs.
+*/
+
+/* Parent and Children Tables
+* One parent chan have several children;
+* The children caries the id of its parent (foreign key).
+*/
