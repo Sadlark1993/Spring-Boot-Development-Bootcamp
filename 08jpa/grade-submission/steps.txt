@@ -1,0 +1,25 @@
+/* Creating a table from POJO class
+* 1. set up a student @Entity;
+* 2. each @Entity field maps to a table column;
+* 3. the primary key column uniquely identifies each record inside the table;
+* 4. every table must have a primary key;
+*/
+
+/*Saving data in the table
+* Spring JPA provides a CrudRepository;
+* make post requests with payload that consists of JSON ;
+* you can save the entity (Java Object) from the CrudRepository.
+*/
+
+//in order to setup a repository to interact with the SQL database, you need to define a database that inherit from CrudRepository
+//the first parameter is the type of the entity that you wanna save, and the second is the type of its primary key
+interface StudentRepository extends CrudRepository<Student, Long>
+
+//the Spring-boot will create an implementation object of this interface. It will exist inside of the Spring Container as a Bean.
+//this Bean will have all the methods that CrudRepository has.
+studentRepositoryImpl implements StudentRepository{
+    save(Student entity)
+    findById(Long id)
+    existsById(Long id)
+    ...
+}
