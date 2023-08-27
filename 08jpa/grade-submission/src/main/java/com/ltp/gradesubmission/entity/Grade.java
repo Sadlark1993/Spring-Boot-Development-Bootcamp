@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.*;
 
@@ -21,20 +23,9 @@ public class Grade {
     @Column(name="score", nullable = false)
     private String score;
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getScore() {
-        return this.score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
+    //this is how we create a foreign key in spring-boot
+    @ManyToOne(optional = false)
+    @JoinColumn(name="student_id", referencedColumnName = "id")
+    private Student student;
 
 }
