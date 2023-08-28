@@ -39,3 +39,10 @@ studentRepositoryImpl implements StudentRepository{
 * One parent chan have several children;
 * The children caries the id of its parent (foreign key).
 */
+
+/* Creating Abstract Methods in CrudRepository Interfaces
+* you can create abstract methods in the abstract class that will be implemented by Spring-Boot;
+* the name of the method must obey a convention, to Spring to know what to do. It must have what it does, and with what: 
+*/
+
+Grade findByStudentId(Long studentId); //this method will be implemented by spring

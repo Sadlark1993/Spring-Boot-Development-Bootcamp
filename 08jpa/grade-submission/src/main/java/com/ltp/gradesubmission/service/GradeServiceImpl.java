@@ -20,7 +20,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public Grade getGrade(Long studentId, Long courseId) {
-        return null;
+        return gradeRepository.findByStudentId(studentId);
     }
 
     @Override
