@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//import com.ltp.gradesubmission.entity.Grade;
 import com.ltp.gradesubmission.entity.Student;
 import com.ltp.gradesubmission.repository.StudentRepository;
 
@@ -16,6 +17,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudent(Long id) {
+        //printGrades(studentRepository.findById(id).get());
         return studentRepository.findById(id).get();
     }
 
@@ -36,4 +38,10 @@ public class StudentServiceImpl implements StudentService {
         return (List<Student>)studentRepository.findAll();
     }
 
+    //just to show that the student object have access to its grades
+/*     void printGrades(Student student){
+        for(Grade grade : student.getGrades()){
+            System.out.println(grade.getScore());
+        }
+    } */
 }

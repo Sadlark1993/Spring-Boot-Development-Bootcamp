@@ -35,7 +35,7 @@ studentRepositoryImpl implements StudentRepository{
 * override the method run. Inside this method, put all the code that you want to run when the app runs.
 */
 
-/* Parent and Children Tables
+/* Parent and Children Tables (one to many relationship)
 * One parent chan have several children;
 * The children caries the id of its parent (foreign key).
 */
@@ -46,3 +46,19 @@ studentRepositoryImpl implements StudentRepository{
 */
 
 Grade findByStudentId(Long studentId); //this method will be implemented by spring
+
+/* Bidirectional Relationship
+* the children is the owner of the relationship (cuz it carries the foreign key)
+* mappedBy goes on the non-owning side of the relationship
+*/
+
+/* Cascade
+* with bidirectional relationship, we can define cascade deletion.
+*/
+
+//we use @JsonIgnore to avoid the api from returned a json recursive infinite loop 
+@JsonIgnore
+@OneToMany(mappedBy = "student", cascade = CascadeType.ALL) //cascade
+private List<Grade> grades;
+
+

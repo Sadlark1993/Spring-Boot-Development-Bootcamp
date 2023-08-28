@@ -10,7 +10,7 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "course")
@@ -21,12 +21,15 @@ public class Course {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "subject")
+  @NonNull
+  @Column(name = "subject", nullable = false)
   private String subject;
 
-  @Column(name = "code")
+  @NonNull
+  @Column(name = "code", nullable = false)
   private String code;
 
-  @Column(name = "description")
+  @NonNull
+  @Column(name = "description", nullable = false)
   private String description;
 }

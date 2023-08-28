@@ -26,7 +26,7 @@ public class Grade {
     private String score;
 
     //this is how we create a foreign key in spring-boot
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false) //many grades belong to one student
     @JoinColumn(name="student_id", referencedColumnName = "id")
     private Student student;
 
