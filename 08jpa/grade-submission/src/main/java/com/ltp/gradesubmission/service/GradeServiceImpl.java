@@ -10,12 +10,15 @@ import com.ltp.gradesubmission.entity.Student;
 import com.ltp.gradesubmission.repository.GradeRepository;
 import com.ltp.gradesubmission.repository.StudentRepository;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @Service
 public class GradeServiceImpl implements GradeService {
-    @Autowired
+    //I don't need to @Autowired this cuz I'm using @AllArgsConstructor that will create a constructor,
+    //the spring automatically injects the beans into the arguments of the constructor.
+    //I will not do it to every service and controller class cuz its too much for my head.
     GradeRepository gradeRepository;
-
-    @Autowired
     StudentRepository studentRepository;
 
     @Override
