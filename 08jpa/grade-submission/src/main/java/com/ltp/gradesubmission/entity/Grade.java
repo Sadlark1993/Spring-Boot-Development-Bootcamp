@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import lombok.*;
 
 @Getter
@@ -16,20 +15,23 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="grade")
+@Table(name = "grade")
 public class Grade {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Long id;
-    @Column(name="score", nullable = false)
-    private String score;
 
-    //this is how we create a foreign key in spring-boot
-    @ManyToOne(optional = false) //many grades belong to one student
-    @JoinColumn(name="student_id", referencedColumnName = "id")
-    private Student student;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private Long id;
 
-    @ManyToOne
-    private Course course;
+  @Column(name = "score", nullable = false)
+  private String score;
+
+  //this is how we create a foreign key in spring-boot
+  @ManyToOne(optional = false) //many grades belong to one student
+  @JoinColumn(name = "student_id", referencedColumnName = "id")
+  private Student student;
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "course_id", referencedColumnName = "id")
+  private Course course;
 }

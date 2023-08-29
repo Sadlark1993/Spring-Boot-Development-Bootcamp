@@ -1,10 +1,14 @@
 package com.ltp.gradesubmission.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.*;
 
@@ -32,4 +36,8 @@ public class Course {
   @NonNull
   @Column(name = "description", nullable = false)
   private String description;
+
+  @JsonIgnore
+  @OneToMany(mappedBy = "course", cascade = CascadeType.ALL) //one course to many grades
+  private List<Grade> grades;
 }

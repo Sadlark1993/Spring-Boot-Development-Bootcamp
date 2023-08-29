@@ -1,10 +1,9 @@
 package com.ltp.gradesubmission.repository;
 
+import com.ltp.gradesubmission.entity.Grade;
 import org.springframework.data.repository.CrudRepository;
 
-import com.ltp.gradesubmission.entity.Grade;
-
-public interface GradeRepository extends CrudRepository<Grade, Long>{
-    Grade findByStudentId(Long studentId);
-    
+public interface GradeRepository extends CrudRepository<Grade, Long> {
+  //you need to follow a very strict criteria to declare abstract methods that spring boot will implement
+  Grade findByStudentIdAndCourseId(Long studentId, Long courseId);
 }
