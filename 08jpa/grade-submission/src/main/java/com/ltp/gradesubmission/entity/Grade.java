@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import lombok.*;
 
 @Getter
@@ -15,7 +16,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "grade")
+@Table(
+  name = "grade",
+  uniqueConstraints = { //these are arrays, not obj!! It's Java, not JavaScript!!
+    @UniqueConstraint(columnNames = { "student_id", "course_id" }), //these names must match the column names
+  }
+)
 public class Grade {
 
   @Id
