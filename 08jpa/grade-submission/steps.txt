@@ -61,4 +61,7 @@ Grade findByStudentId(Long studentId); //this method will be implemented by spri
 @OneToMany(mappedBy = "student", cascade = CascadeType.ALL) //cascade
 private List<Grade> grades;
 
-
+/* Optionals
+* it's to prevent the possibility of nullPointerException;
+* it's a container around the object that risks being null;
+*/

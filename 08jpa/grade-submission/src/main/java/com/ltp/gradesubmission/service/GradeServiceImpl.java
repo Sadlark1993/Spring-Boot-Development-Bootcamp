@@ -3,12 +3,13 @@ package com.ltp.gradesubmission.service;
 import com.ltp.gradesubmission.entity.Course;
 import com.ltp.gradesubmission.entity.Grade;
 import com.ltp.gradesubmission.entity.Student;
+import com.ltp.gradesubmission.exception.GradeNotFoundException;
 import com.ltp.gradesubmission.repository.CourseRepository;
 import com.ltp.gradesubmission.repository.GradeRepository;
 import com.ltp.gradesubmission.repository.StudentRepository;
 import java.util.List;
+import java.util.Optional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
@@ -24,7 +25,11 @@ public class GradeServiceImpl implements GradeService {
 
   @Override
   public Grade getGrade(Long studentId, Long courseId) {
-    return gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
+    Optional<Grade> grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
+    if (grade.isPresent()) {
+      return grade.get();
+    }
+    throw new GradeNotFoundException(studentId, courseId);
   }
 
   @Override
@@ -38,9 +43,13 @@ public class GradeServiceImpl implements GradeService {
 
   @Override
   public Grade updateGrade(String score, Long studentId, Long courseId) {
-    Grade grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
-    grade.setScore(score);
-    return gradeRepository.save(grade);
+    Optional<Grade> grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
+    if (grade.isPresent()) {
+      Grade grade2 = grade.get();
+      grade2.setScore(score);
+      return gradeRepository.save(grade2);
+    }
+    throw new GradeNotFoundException(studentId, courseId);
   }
 
   @Override
