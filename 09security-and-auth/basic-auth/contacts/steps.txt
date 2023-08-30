@@ -1,0 +1,35 @@
+/* Process
+* the API requires authentication before processing a request;
+* the clients HTTP request needs to include credentials in the header;
+* the credentials are encoded in base64 to ensure that they are in ASCII. It's decoded in backend;
+* AUTHENTICATION: Spring Security validates the identity of the client;
+* if the authentication fails, the server will send back a 401 response: UNAUTHORIZED;
+* AUTHORIZATION: Spring Security determines what the client has access to;
+* if the authorization fails, the server will send back a 403 response: FORBIDDEN;
+*/
+
+/* Security Filter Chain
+* DELETE /contacts/{id} requires authentication;
+* only admins have the authority to invoque DELETE;
+* POST /contact requires authentication;
+* admins and users have the authority to invoque POST;
+* GET operations can be accessed to anybody.
+*/
+
+//add spring-boot-starter-security maven dependency to pom.xml
+
+//SecurityFilterChain: a Bean that describes a chain of security rules (filters).
+
+/* User Details Service
+* the UserDetailsServiceBean contains user details;
+* basic auth depends on this information to authenticate users;
+* BCrypt: hashing algorithm for password protection;
+*/
+
+/* Specify different rules from methods that have the same type of request
+To do so, you need to specify the path in antMatchers();
+*/
+
+//path: "/delete/{id}/contact
+.antMatchers(HttpMethod.DELETE, "/delete/*/contact").hasRole("ADMIN")
+.antMatchers(HttpMethod.DELETE).hasAnyRole("USER", "ADMIN")
