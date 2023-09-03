@@ -1,0 +1,32 @@
+//in security folder, we are allowing data access through h2. THIS MUST BE SO, ONLY WHEN DEVELOPING.
+
+/* JWT: Json Web Token
+* consists of a header, a payload and a signature;
+* 
+*/
+
+//the header is Bit64 encoded
+header 
+{
+  "alg": "HS256", //algorithm used to secure the token
+  "typ": "JWT" //type of token
+}
+
+body
+{
+  "sub": "Sadlark", //username
+  "name": "Claudio",
+  "exp": 33423432
+}
+
+//the algorithm is going to produce a signature key that combines the header, the body and the secret key of your application
+signature
+{
+  987sdf69s8d76f
+}
+//NEVER STORE SENSITIVE DATA INSIDE THE PAYLOAD OR THE HEADER!!!
+
+//the data will be sent Bit64 encoded. Each part separated by a dot:
+//<header>.<body>.<signature>
+
+//when a user logs in successfully, the API sends back a signed Jason Web Token
