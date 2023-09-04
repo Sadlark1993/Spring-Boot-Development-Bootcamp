@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.ltp.gradesubmission.exception.EntityNotFoundException;
+
 /* 
  * This will bew the first filter to be called when an /authenticate request is called. After that, an chain.doFilter() 
  * will be called to proceed with the process of authentication.
@@ -23,15 +25,15 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
     // Wraps the whole authentication request handler
     try {
       filterChain.doFilter(request, response);
+
+    } catch (EntityNotFoundException e) {
+      response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+      response.getWriter().write("User not found");
+      response.getWriter().flush();
     } catch (RuntimeException e) {
       response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-      /*
-       * If you want to write a String into the response:
-       * 
-       * response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-       * response.getWriter().write("BAD REQUEST"); // <--
-       * response.getWriter().flush();
-       */
+      response.getWriter().write("BAD REQUEST");
+      response.getWriter().flush();
     }
   }
 }
