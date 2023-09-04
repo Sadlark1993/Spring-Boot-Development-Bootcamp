@@ -3,6 +3,7 @@ package com.ltp.gradesubmission.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ltp.gradesubmission.entity.User;
 import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
